@@ -742,6 +742,7 @@ def run_account(account, region, policies_config, output_path,
                     "Ran account:%s region:%s policy:%s matched:%d time:%0.2f",
                     account['name'], region, p.name, len(resources),
                     time.time() - st)
+                time.sleep(900)
             except ClientError as e:
                 success = False
                 failed_policies.append(p.name)
