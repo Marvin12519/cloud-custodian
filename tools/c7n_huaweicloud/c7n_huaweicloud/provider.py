@@ -72,7 +72,7 @@ class HuaweiSessionFactory:
             })
             sig.Sign(request)
             resp = requests.post(url, headers=request.headers, data=request.body)
-            log.info("==================Get V5 assume credential:")
+            log.error("==================Get V5 assume credential:")
             resp.raise_for_status()
             json_resp = resp.json()
             if not json_resp.get("credentials"):
