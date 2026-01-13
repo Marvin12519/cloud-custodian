@@ -71,6 +71,7 @@ class HuaweiSessionFactory:
                 "agency_session_name": "custodian_agency_session",
             })
             sig.Sign(request)
+            log.error("-------------------?")
             resp = requests.post(url, headers=request.headers, data=request.body)
             resp.raise_for_status()
             json_resp = resp.json()
