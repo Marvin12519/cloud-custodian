@@ -746,7 +746,7 @@ def run_account(account, region, policies_config, output_path,
                 if sleepTimes == 0 :
                     sleepTimes = 1
                     log.info("Sleeping for 900 seconds......")
-                    time.sleep(900)
+                    # time.sleep(900)
             except ClientError as e:
                 success = False
                 failed_policies.append(p.name)
