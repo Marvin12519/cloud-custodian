@@ -72,12 +72,12 @@ class HuaweiSessionFactory:
             })
             sig.Sign(request)
             resp = requests.post(url, headers=request.headers, data=request.body)
-            log.error("==================Get V5 assume credential:")
             resp.raise_for_status()
             json_resp = resp.json()
             if not json_resp.get("credentials"):
                 raise ValueError("No credentials in assume role response")
             creds = json_resp["credentials"]
+            log.error(f"==================Get V5 cred AK: {creds["access_key_id"]}")
             return creds["access_key_id"], creds["secret_access_key"], creds["security_token"]
 
         except requests.exceptions.HTTPError as e:
