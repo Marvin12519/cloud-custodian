@@ -328,6 +328,8 @@ class FunctionGraphMode(ServerlessExecutionMode):
         # 循环判断actions中action名称
         for action in actions:
             if action.name not in self.actions_without_resources:
+                log.info("action.name= %s , actions_without_resources= %s , not in= %s"
+                         , action.name,self.actions_without_resources,action.name not in self.actions_without_resources)
                 # 有任一action不在非资源类action列表中则返回false
                 return False
 
